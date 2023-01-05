@@ -1,39 +1,22 @@
-import "./ExpenceItem.css";
+import ExpenceDate from "../Expense/ExpenceDate";
+import "../Expense/ExpenceItem.css";
+import ExpenceDetails from "../Expense/ExpenceDetails";
+import React from "react";
 function ExpenseItem(props) {
-  console.log(props.expenses);
-  // return (
-  //   <div>
-  //    {props.expenses.map((expense) => {
-  //       <div className="expense-item">
-  //       <div>{expense.date.toISOString()}</div>
-  //         <div className="expense-item__description">
-  //           <h2>{expense.title}</h2>
-  //           <div className="expense-item__price">${expense.amount}</div>
-  //           <div className="expense-item__description">
-  //             <h2>{expense.locationOfExpenditure}</h2>
-  //           </div>
-  //         </div>
-  //        </div>}
-  //     )
-  //    }
-  //    </div>)
-  return(<div>
-    {
-      props.expenses.map((expense)=>(
-        <div className="expense-item">
-      <div>{expense.date.toISOString()}</div>
-      <div className="expense-item__description">
-           <h2>{expense.title}</h2>
-             <div className="expense-item__price">${expense.amount}</div>
-             <div className="expense-item__description">
-               <h2>{expense.locationOfExpenditure}</h2>
-             </div>
-           </div>
+  const deleteExpence=() =>{
+   let item= document.getElementsByClassName('.props.id');
+   console.log(item);
+   //item=item.parentElement;
+   //item.remove();
 
-      </div>
-       ))
-    }
-  </div>)
 
- }
+  }
+  return (
+    <div className="expense-item">
+      <ExpenceDate date={props.date} />
+      <ExpenceDetails title={props.title} amount={props.amount} locationOfExpenditure={props.locationOfExpenditure}/>
+            <button onClick={deleteExpence}>Delete</button>
+    </div>
+  );
+}
 export default ExpenseItem;

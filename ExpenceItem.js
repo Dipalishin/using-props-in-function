@@ -1,21 +1,20 @@
 import ExpenceDate from "../Expense/ExpenceDate";
 import "../Expense/ExpenceItem.css";
 import ExpenceDetails from "../Expense/ExpenceDetails";
-import React from "react";
+import React, { useState } from "react";
 function ExpenseItem(props) {
-  const deleteExpence=() =>{
-   let item= document.getElementsByClassName('.props.id');
-   console.log(item);
-   //item=item.parentElement;
-   //item.remove();
+const [amount,setAmount]=useState(props.amount);
+const expenceChange=()=>{
+  setAmount('100');
+}
 
+  
 
-  }
   return (
     <div className="expense-item">
       <ExpenceDate date={props.date} />
-      <ExpenceDetails title={props.title} amount={props.amount} locationOfExpenditure={props.locationOfExpenditure}/>
-            <button onClick={deleteExpence}>Delete</button>
+      <ExpenceDetails title={props.title} amount={amount} locationOfExpenditure={props.locationOfExpenditure}/>
+            <button onClick={expenceChange}>Change Expence</button>
     </div>
   );
 }

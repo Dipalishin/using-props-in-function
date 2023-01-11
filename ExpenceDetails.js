@@ -1,4 +1,4 @@
-import "./ExpenceItem.css";
+import "../ExpenceItem/ExpenceItem.css";
 
 function ExpenceDetails(props){
 return(
